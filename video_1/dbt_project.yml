@@ -32,8 +32,22 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 #Even though project name above and below didnt match it is executing fine
+vars:
+  person_name: Suraj
+
+on-run-start: "insert into hook_check (hook_type) values('run-start-hook')"
+on-run-end: "insert into hook_check (hook_type) values('run-end-hook')"
+
 models:
-  my_new_project:
+  Practice_DBT:
     # Config indicated by + and applies to all files under models/example/
     example:
       +materialized: view
+    Video_4_Custom_schema:
+      +materialized: table
+      +schema: macro_Custom_Schmea_Demo
+      +pre-hook: "insert into hook_check (hook_type) values('pre-hook')"
+      +post-hook: "insert into hook_check (hook_type) values('post-hook')" 
+
+
+    

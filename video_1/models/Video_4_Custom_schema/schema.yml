@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: Generate_Custom_schmea
+    columns:
+      - name: WEB_REC_END_DATE
+        tests:
+          - not_null
+  
+  - name: custom_test
+    columns:
+      - name: name
+        tests:
+          - not_last_name_aj
+
+
+sources:
+  - name: WEB_PAGE
+    description: This source fetches WEB_PAGE data
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCDS_SF100TCL
+    tables:
+      - name: WEB_PAGE
+
+  - name: WEB_SITE
+    description: This source fetches WEB_SITE data
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCDS_SF100TCL
+    tables:
+      - name: WEB_SITE
+
+      

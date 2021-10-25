@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: WEB_PAGE_data
+    description: '{{doc("WEB_Page_data")}}'
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCDS_SF100TCL
+    tables:
+      - name: WEB_PAGE
+
+  - name: WEB_SITE_data
+    description: '{{doc("WEB_SITE_data")}}'
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCDS_SF100TCL
+    tables:
+      - name: WEB_SITE
